@@ -1,0 +1,41 @@
+PARTICIPANTS:
+Bruce Ominde BCS-03-0039/2023
+Isaac Osiemo BCS-05-0418/2023
+Brandom Korir BCS-0449/2023
+
+
+
+Overview:
+This code detects faces in an image and predicts the age and gender of each detected face. It uses pre-trained deep learning models provided by OpenCV for face detection, and Caffe models for age and gender prediction.
+The images are stored in the faces folder and their output in the outputs folder.
+
+
+Dependencies:
+    OpenCV (cv2)
+    Pre-trained models for face detection, age prediction, and gender prediction.
+
+pip install opencv-python
+
+Models:
+    Face Detection: Uses opencv_face_detector_uint8.pb and opencv_face_detector.pbtxt.
+    Age Prediction: Uses age_net.caffemodel and age_deploy.prototxt.
+    Gender Prediction: Uses gender_net.caffemodel and gender_deploy.prototxt.
+
+Constants:
+    MODEL_MEAN_VALUES: Mean values used for preprocessing the age and gender prediction models.
+    age_list: List of age ranges corresponding to the outputs of the age prediction model.
+    gender_list: List of genders corresponding to the outputs of the gender prediction model.
+
+Functions
+load_image(image_path):
+    Description: Loads an image from the specified path.
+    Parameters:
+        image_path (str): Path to the input image.
+    Returns: Loaded image in BGR format.
+    Prints: Error message if the image cannot be read.
+
+detect_age_gender(image_path, output_path):
+    Description: Detects faces in an image, predicts the age and gender for each detected face, and saves the result with annotated age and gender.
+    Parameters:
+        image_path (str): Path to the input image.
+        output_path (str): Path to save the output image with annotations.
